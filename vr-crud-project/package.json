@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "VR CRUD Project with A-Frame",
   "scripts": {
-    "start": "json-server --watch data/db.json --port 3000",
-    "dev": "json-server --watch data/db.json --port 3000"
+    "start": "node scripts/start.js",
+    "api": "json-server --watch data/db.json --port 3000",
+    "serve": "npx serve -l 5500",
+    "dev": "concurrently \"npm run api\" \"npm run serve\""
   },
   "dependencies": {
-    "json-server": "^0.17.4"
+    "concurrently": "^8.2.2",
+    "json-server": "^0.17.4",
+    "serve": "^14.2.1"
   }
 }
