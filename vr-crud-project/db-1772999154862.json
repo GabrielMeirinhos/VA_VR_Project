@@ -1,0 +1,36 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "Cubo Inicial",
+      "type": "box",
+      "color": "#FF0000",
+      "position": {
+        "x": -2,
+        "y": 1,
+        "z": -3
+      },
+      "rotation": {
+        "x": 0,
+        "y": 45,
+        "z": 0
+      }
+    },
+    {
+      "id": 2,
+      "name": "Esfera Azul",
+      "type": "cylinder",
+      "color": "#0000ff",
+      "position": {
+        "x": 2,
+        "y": 1,
+        "z": -3
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  ]
+}

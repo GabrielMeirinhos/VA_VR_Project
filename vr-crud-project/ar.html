@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AR CRUD Project</title>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body style="margin: 0; overflow: hidden;">
+    
+    <!-- AR Scene -->
+    <a-scene embedded arjs>
+      
+      <!-- Camera + Gaze Cursor for AR -->
+      <a-entity camera>
+          <a-cursor fuse="true" fuse-timeout="300"
+                material="color: yellow; shader: flat; opacity: 0.8"
+                geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+                animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
+                animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 300; from: 1 1 1; to: 0.1 0.1 0.1"
+                animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1">
+                <a-text value="✋" align="center" position="0 -0.05 0" width="2" color="yellow"></a-text>
+          </a-cursor>
+      </a-entity>
+
+      <!-- Marker (Hiro) -->
+      <a-marker preset="hiro">
+        
+        <!-- UI (Botões) ancorada no marcador mas deslocada -->
+        <a-entity id="control-panel" position="0 0 1" rotation="-90 0 0" scale="0.5 0.5 0.5">
+            <!-- CREATE -->
+            <a-entity class="crud-button" data-action="create" geometry="primitive: plane; width: 0.8; height: 0.3" material="color: green" position="-1 0 0">
+                <a-text value="CRIAR" align="center" position="0 0 0.02" width="4"></a-text>
+            </a-entity>
+            <!-- UPDATE -->
+            <a-entity class="crud-button" data-action="update" geometry="primitive: plane; width: 0.8; height: 0.3" material="color: orange" position="0 0 0">
+                <a-text value="COR" align="center" position="0 0 0.02" width="4"></a-text>
+            </a-entity>
+            <!-- MOVE -->
+            <a-entity class="crud-button" data-action="move" geometry="primitive: plane; width: 0.8; height: 0.3" material="color: purple" position="0 0.5 0">
+                <a-text value="MOVER" align="center" position="0 0 0.02" width="4"></a-text>
+            </a-entity>
+             <!-- DELETE -->
+             <a-entity class="crud-button" data-action="delete" geometry="primitive: plane; width: 0.8; height: 0.3" material="color: red" position="1 0 0">
+                <a-text value="DELETAR" align="center" position="0 0 0.02" width="4"></a-text>
+             </a-entity>
+        </a-entity>
+
+        <!-- Container para Objetos -->
+        <a-entity id="items-container" scale="0.5 0.5 0.5"></a-entity>
+
+      </a-marker>
+      
+    </a-scene>
+
+    <script src="script.js"></script>
+  </body>
+</html>
